@@ -1,0 +1,12 @@
+namespace Colors
+
+struct Color
+{
+    0: string Nom;
+    1: string Rgb;
+}
+
+struct NoColor
+{
+    0: string Message;
+}
