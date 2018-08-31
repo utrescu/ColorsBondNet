@@ -154,4 +154,4 @@ I després en un altre terminal s'executa el programa:
     Result NotFound
     Error Color 'patata' no trobat
 
-![jamesbond en marxa](jamesbond.svg)
+![jamesbond en marxa](https://cdn.rawgit.com/utrescu/ColorsBondNet/d1885197/jamesbond.svg)
