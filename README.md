@@ -86,6 +86,8 @@ Per tant el primer és iniciar MySQL, crear-hi la base de dades, i importar-hi l
     $ mysql -u colors -p colors < colors.sql
     Password:
 
+![Comprovacio](mysql.svg)
+
 #### El programa
 
 Bàsicament és un servei REST que té dos mètodes GET, un per Id i un per Nom, que cerca els resultats a la base de dades, i que retorna els resultats en binari
@@ -151,3 +153,5 @@ I després en un altre terminal s'executa el programa:
     $ dotnet run patata
     Result NotFound
     Error Color 'patata' no trobat
+
+![jamesbond en marxa](jamesbond.svg)
