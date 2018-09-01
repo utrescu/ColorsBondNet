@@ -36,6 +36,11 @@ namespace james
                    mysqlOptions =>
                          {
                              mysqlOptions.ServerVersion(new Version(5, 7, 21), ServerType.MySql);
+                             mysqlOptions.EnableRetryOnFailure(
+                                 maxRetryCount: 10,
+                                maxRetryDelay: TimeSpan.FromSeconds(30),
+                                errorNumbersToAdd: null
+                             );
                          }
                    ));
 
