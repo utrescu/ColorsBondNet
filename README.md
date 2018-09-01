@@ -37,7 +37,9 @@ En el repositori hi ha diversos projectes (no sóc gaire original amb els noms):
         2: list<float> floats = nothing;
     }
 
-Aquests esquemes (normalment amb extensió .bond) s'han de compilar amb el compilador de Bond (gbc) que en Windows té el seu propi paquet C#, però en linux s'ha de compilar per generar les classes del llenguatge
+Aquests esquemes (normalment amb extensió .bond) s'han de compilar amb el compilador de Bond (gbc) per generar les classes que farà servir el programa. En Windows el gbc s'obté automticament del paquet C#, però en linux s'ha de compilar el codi font per generar-lo.
+
+Per compilar manualment l'estructura de dades en C#:
 
     gbc c# fitxer.bond
 
@@ -45,37 +47,43 @@ Però en general els projectes ja ho faran automàticament quan es compili el pr
 
 #### gbc
 
-En Fedora, les instruccions d'Ubuntu ja estan en el README, s'han d'instal·lar els requeriments:
+Per generar el compilador gbc en Fedora, les instruccions per Ubuntu ja estan en el README, s'han de fer dues coses: 
+
+1. Instal·lar els requeriments:
 
     dnf install clang cmake zlib-dev boost-dev boost-thread-dev
     curl -sSL https://get.haskellstack.org/ | sh
 
-Clonar el repositori i generar l'executable:
+2. Clonar el repositori i generar l'executable:
 
     git clone https://github.com/Microsoft/bond
     cd bond/compiler
     stack build
 
-Al acabar tindrem l'executable que, pel que he vist, s'ha de copiar a **~/.nuget/packages/bond.csharp/8.0.0/build/../tools/** com a gbc.exe perquè s'integri automàticament en la creació dels projectes.
+Al acabar l'executable s'ha de copiar a **~/.nuget/packages/bond.csharp/8.0.0/build/../tools/** amb el nom **gbc.exe** perquè s'integri automàticament en la creació dels projectes i no calgui compilar els fitxers .bond manualment.
 
 ### Basic
 
-Es tracta de l'exemple de la pàgina web adaptat a la meva estructura de dades
+Es tracta d'un projecte que implementa l'exemple de la documentació de Bond adaptat a la meva estructura de dades (no és gaire interessant)
 
     cd base
     dotnet run
 
 ### James
 
-En el projecte 'james' que fa de servidor REST en comptes d'instal·lar els paquests de 'Bond.AspNetCore.Mvc.Formatters' me'ls he descarregat i adaptat lleugerament per evitar els errors. Simplement per veure com es fa per modificar la sortida d'un Webapi. Era innecessari perquè podia haver instal·lat el paquet ...
+En el projecte 'james' que fa de servidor REST. 
+
+> En comptes d'instal·lar els paquests de 'Bond.AspNetCore.Mvc.Formatters' me'ls he descarregat i adaptat lleugerament per evitar els errors. Simplement per veure com es fa per modificar la sortida d'un Webapi. Era innecessari perquè podia haver instal·lat el paquet ...
+
+Es podria haver fet afegint el paquet al projecte amb: 
 
     dotnet add package Bond.AspNetCore.Mvc.Formatters
 
 #### Base de dades
 
-Per funcionar he implementat una base de dades amb els colors en català de la Wikipèdia. Aquí hi ha un backup de la base de dades en el directori 'database'
+Per fer l'exemple una mica més interessant he fet que el servei recuperi les dades d'una base de dades MySQL que conté la representació RGB dels colors en català de la Wikipèdia. 
 
-Per tant el primer és iniciar MySQL, crear-hi la base de dades, i importar-hi les dades.
+En el directori 'database' hi ha una còpia de seguretat de les dades SQL. Per tant el primer és iniciar MySQL, crear-hi la base de dades, i importar-hi les dades.
 
     mysql -u root -p
     Password:
