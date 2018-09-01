@@ -86,7 +86,7 @@ Per tant el primer és iniciar MySQL, crear-hi la base de dades, i importar-hi l
     $ mysql -u colors -p colors < colors.sql
     Password:
 
-![Comprovacio](mysql.svg)
+![Comprovacio](https://cdn.rawgit.com/utrescu/ColorsBondNet/cf450ea8/mysql.svg)
 
 #### El programa
 
@@ -154,4 +154,4 @@ I després en un altre terminal s'executa el programa:
     Result NotFound
     Error Color 'patata' no trobat
 
-![jamesbond en marxa](jamesbond.svg)
+![jamesbond en marxa](https://cdn.rawgit.com/utrescu/ColorsBondNet/d1885197/jamesbond.svg)
